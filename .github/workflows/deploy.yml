@@ -1,7 +1,14 @@
 name: Azure Bicep
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  workflow_call:
+      inputs:
+        environment:
+          description: 'Deploment environment'
+          default: 'dev'
+          required: true
+          type: string
 
 env:
   targetEnv: dev
