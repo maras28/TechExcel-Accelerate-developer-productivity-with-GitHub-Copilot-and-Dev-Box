@@ -2,7 +2,35 @@
 param environment string = 'dev'
 
 @description('Location of services')
-param location string = resourceGroup().location
+//param location string = resourceGroup().location
+@allowed([
+  'eastus'
+  'westus'
+  'westeurope'
+  'northeurope'
+  'southeastasia'
+  'eastasia'
+  'australiaeast'
+  'australiasoutheast'
+  'brazilsouth'
+  'centralus'
+  'japaneast'
+  'japanwest'
+  'koreacentral'
+  'koreasouth'
+  'southindia'
+  'centralindia'
+  'canadacentral'
+  'canadaeast'
+  'uksouth'
+  'ukwest'
+  'westcentralus'
+  'westus2'
+  'southafricanorth'
+  'uaenorth'
+])
+param location string = 'westeurope'
+
 
 var webAppName = '${uniqueString(resourceGroup().id)}-${environment}'
 var appServicePlanName = '${uniqueString(resourceGroup().id)}-mpnp-asp'
